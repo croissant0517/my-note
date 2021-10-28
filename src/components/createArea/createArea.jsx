@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import AddCircleIcon from "@material-ui/icons/AddCircle";
-import Fab from "@material-ui/core/Fab";
 import Zoom from "@material-ui/core/Zoom";
 
 import "./createArea.scss"
@@ -48,7 +46,7 @@ function CreateArea(props) {
                     name="title"
                     onChange={handleChange}
                     value={note.title}
-                    placeholder="Title"
+                    placeholder="Enter a title"
                 />
                 ) : null}
                 <textarea
@@ -57,12 +55,10 @@ function CreateArea(props) {
                     onChange={handleChange}
                     value={note.content}
                     placeholder="Take a note..."
-                    rows={isExpand ? "3" : "1"}
+                    rows={isExpand ? "12" : "1"}
                 />
                 <Zoom in={isExpand}>
-                    <Fab onClick={submitNote}>
-                        <AddCircleIcon />
-                    </Fab>
+                    <button onClick={submitNote}>Add</button>
                 </Zoom>
             </form>
         </div>

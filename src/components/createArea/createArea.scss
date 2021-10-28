@@ -1,10 +1,9 @@
 .create-note {
     position: relative;
-    width: 480px;
+    width: 400px;
     margin: 30px auto 20px auto;
-    background: #fff;
+    background: rgb(246, 246, 108);
     padding: 15px;
-    border-radius: 7px;
     box-shadow: 0 1px 5px rgb(138, 137, 137);
 
     input , textarea{
@@ -18,14 +17,11 @@
     }
 
     button {
-        position: absolute;
-        right: 18px;
-        bottom: -18px;
-        background: #006aa6;
+        margin-top: 6px;
+        background: gray;
         color: #fff;
         border: none;
-        border-radius: 50%;
-        width: 36px;
+        width: 100%;
         height: 36px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
         cursor: pointer;
