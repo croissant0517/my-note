@@ -4,6 +4,7 @@ import DeleteIcon from "@material-ui/icons/Delete";
 import "./Note.scss"
 
 function Note(props) {
+
     function handleClick() {
         props.onDelete(props.id);
     }
@@ -15,6 +16,7 @@ function Note(props) {
             <button onClick={handleClick}>
                 <DeleteIcon />
             </button>
+            <p>{props.time}</p>
         </div>
     );
 }

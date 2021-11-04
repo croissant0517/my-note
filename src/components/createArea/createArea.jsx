@@ -4,11 +4,13 @@ import Zoom from "@material-ui/core/Zoom";
 import "./createArea.scss"
 
 function CreateArea(props) {
+
     const [isExpand, setIsExpand] = useState(false);
     const [note, setNote] = useState({
         title: "",
-        content: ""
+        content: "",
     });
+    console.log(note);
 
     function handleChange(event) {
         const { name, value } = event.target;
@@ -24,11 +26,11 @@ function CreateArea(props) {
     function submitNote(event) {
         event.preventDefault();
         if (note.title.length > 0 && note.content.length > 0 ) {
-            props.onAdd(note);
             setNote({
                 title: "",
-                content: ""
+                content: "",
             });
+            props.onAdd(note);
         } else {
             return
         }   
