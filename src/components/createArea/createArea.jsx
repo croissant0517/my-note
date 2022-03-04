@@ -40,25 +40,28 @@ function CreateArea(props) {
         setIsExpand(true);
     }
 
+    function unExpand() {
+        setIsExpand(false);
+    }
+
     return (
-        <div>
-            <form className="create-note">
-                {isExpand ? (
+        <div className="create-note-contaner">
+            <form className="create-note" onMouseEnter={expand} onMouseLeave={unExpand} >
                 <input
                     name="title"
                     onChange={handleChange}
                     value={note.title}
                     placeholder="Enter a title"
                 />
-                ) : null}
+                {isExpand ? (
                 <textarea
-                    onClick={expand}
                     name="content"
                     onChange={handleChange}
                     value={note.content}
                     placeholder="Take a note..."
                     rows={isExpand ? "12" : "1"}
                 />
+                ) : null}
                 <Zoom in={isExpand}>
                     <button onClick={submitNote}>Add</button>
                 </Zoom>

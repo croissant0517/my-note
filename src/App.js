@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import Note from "./components/Note/Note";
@@ -15,8 +15,8 @@ function App() {
     setNotes((prevNotes) => {
       return [...prevNotes, newNote];
     });
+    window.localStorage.setItem("notes", JSON.stringify([...notes, newNote]))
   }
-  console.log(notes);
 
   function deleteNote(id) {
     setNotes((prevNotes) => {
@@ -24,7 +24,15 @@ function App() {
         return index !== id;
       });
     });
+    window.localStorage.setItem("notes", JSON.stringify(notes.filter((noteItem, index) => {
+      return index !== id;
+    })))
   }
+
+  useEffect(() => {
+    const notesPersister = JSON.parse(window.localStorage.getItem("notes") || "[]");
+    setNotes(notesPersister)
+  }, [])
 
   return (
     <div>
